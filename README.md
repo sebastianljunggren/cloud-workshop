@@ -10,10 +10,10 @@ The API consists of one resource for creating, updating and listing quoutes. The
 
 Lists quotes and information needed for paging. 
 
-**URL**: `/api/quotes` 
-**Method**: `GET` 
-**Params**: `page` (optional, integer, >= 0) 
-**Response code**: 200 
+**URL**: `/api/quotes`  
+**Method**: `GET`  
+**Params**: `page` (optional, integer, >= 0)  
+**Response code**: 200  
 **Example response**:
 
 ```js
@@ -33,9 +33,9 @@ Lists quotes and information needed for paging.
 
 Adds a new quote.
 
-**URL**: `/api/quotes` 
-**Method**: `POST` 
-**Response code**: 201 if successful, otherwise 400 
+**URL**: `/api/quotes`  
+**Method**: `POST`  
+**Response code**: 201 if successful, otherwise 400  
 **Example request body**:
 
 ```js
@@ -59,9 +59,9 @@ Adds a new quote.
 
 Gets a quote by ID.
 
-**URL**: `/api/quotes/{{id}}` 
-**Method**: `GET` 
-**Response code**: 200 if present, otherwise 404 
+**URL**: `/api/quotes/{{id}}`  
+**Method**: `GET`  
+**Response code**: 200 if present, otherwise 404  
 **Example response**:
 
 ```js
@@ -76,9 +76,9 @@ Gets a quote by ID.
 
 Updates a quote.
 
-**URL**: `/api/quotes/{{id}}` 
-**Method**: `PUT` 
-**Response code**: 200 if successful, 404 if no quote with given id exists, otherwise 400 
+**URL**: `/api/quotes/{{id}}`  
+**Method**: `PUT`  
+**Response code**: 200 if successful, 404 if no quote with given id exists, otherwise 400  
 **Example request body**:
 
 
