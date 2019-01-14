@@ -16,17 +16,12 @@ public class Quote {
     private String quote;
     private String author;
 
-    public Quote(Long id, String quote, String author) {
-        this.id = id;
+    public Quote(String quote, String author) {
         this.quote = quote;
         this.author = author;
     }
 
-    public Quote() {
-        this.id = null;
-        this.quote = null;
-        this.author = null;
-    }
+    public Quote() {}
 
     public void setQuote(String quote) {
         this.quote = quote;

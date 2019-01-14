@@ -1,7 +1,7 @@
 package se.knowit.quotesapiexample;
 
 public class PostQuoteException extends RuntimeException {
-    private Quote quote = new Quote(null, "Don't Panic.", "The Hitchhikers Guide to the Galaxy");
+    private Quote quote = new Quote("Don't Panic.", "The Hitchhikers Guide to the Galaxy");
     private String message = "Could not create quote";
 
 
