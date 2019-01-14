@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import qs from "query-string";
 import Paginator from "./Paginator";
-import Page from "./PageController";
+import Page from "./quotesController";
 import { Button, UnstyledLink as Link } from "./common";
 
 export default props => {
@@ -13,7 +13,7 @@ export default props => {
 
   useEffect(
     () => {
-      setActivePage(pageParam);
+      setActivePage(pageParam || 0);
     },
     [pageParam]
   );

@@ -1,15 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export default props => {
+export default ({ page, onQuoteClicked }) => {
   return (
     <QuotesContainer>
-      {props.page.content &&
-        props.page.content.map(quoteObj => (
-          <Card
-            key={quoteObj.id}
-            onClick={() => props.navigateToQuote(quoteObj.id)}
-          >
+      {page.content &&
+        page.content.map(quoteObj => (
+          <Card key={quoteObj.id} onClick={() => onQuoteClicked(quoteObj.id)}>
             <Quote>{quoteObj.quote}</Quote>
             <br />
             <Author>- {quoteObj.author}</Author>

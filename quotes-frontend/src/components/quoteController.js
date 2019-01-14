@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import history from "../history";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import { ErrorBar } from "./common";
 import QuoteView from "./quoteView";
+import { get, put } from "../backend";
 
 export default ({ match }) => {
   let [quoteData, setQuoteData] = useState({});
@@ -14,7 +13,7 @@ export default ({ match }) => {
 
   const getQuote = async url => {
     try {
-      const resp = await fetch(`/api/quotes/${match.params.quoteId}`);
+      const resp = await get(`/api/quotes/${match.params.quoteId}`);
       const data = await resp.json();
       return data;
     } catch (error) {
@@ -24,21 +23,12 @@ export default ({ match }) => {
 
   const putQuote = async (url, object) => {
     try {
-      let resp = await fetch(url, {
-        method: "PUT",
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(object)
-      });
-
-      console.log("resp", resp);
-
+      let resp = await put(url, object);
       let body = await resp.json();
       return body;
     } catch (error) {
       await setError(`Could not update quote - ${error}`);
       await setIsLoading(false);
-      console.log("err", error);
     }
   };
 

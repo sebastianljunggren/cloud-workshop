@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import QuoteView from "./quoteView";
 import history from "../history";
 import { ErrorBar } from "./common";
+import { post } from "../backend";
 
 export default () => {
   let quoteData = { quote: "", author: "" };
@@ -12,12 +13,7 @@ export default () => {
 
   const postQuote = async (url, object) => {
     try {
-      let resp = await fetch(url, {
-        method: "POST",
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(object)
-      });
+      let resp = await post(url, object);
 
       let body = await resp.json();
       return body;
@@ -31,9 +27,6 @@ export default () => {
 
   const createQuote = async () => {
     let editObject = { quote: editedQuote, author: editedAuthor };
-    // if (editedQuote === "" || editedAuthor==="") {
-    //   setError("Bad")
-    // }
     if (editObject) {
       await setIsLoading(true);
       let data = await postQuote(`/api/quotes/`, editObject);
@@ -57,6 +50,10 @@ export default () => {
         console.log("Editing non existing field.");
     }
   };
+
+  if (isLoading) {
+    return "Loading...";
+  }
 
   return (
     <>
