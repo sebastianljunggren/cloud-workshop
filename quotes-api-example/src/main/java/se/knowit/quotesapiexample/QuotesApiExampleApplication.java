@@ -2,12 +2,10 @@ package se.knowit.quotesapiexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.reactive.error.DefaultErrorAttributes;
-import org.springframework.boot.web.reactive.error.ErrorAttributes;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.Map;
 
 @SpringBootApplication
 public class QuotesApiExampleApplication {
@@ -16,5 +14,15 @@ public class QuotesApiExampleApplication {
 		SpringApplication.run(QuotesApiExampleApplication.class, args);
 	}
 
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/api/**").allowedMethods("GET", "POST", "HEAD", "PUT");
+			}
+		};
+	}
 }
 
