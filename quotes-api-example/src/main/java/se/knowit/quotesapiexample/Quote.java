@@ -2,18 +2,19 @@ package se.knowit.quotesapiexample;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Quote {
 
     @Id
-    @GeneratedValue
-    private final Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Id", nullable = false, unique = true)
+    private Long id;
+    @Column(name="Quote", length = 1000)
     private String quote;
+    @Column(name="Author")
     private String author;
 
     public Quote(String quote, String author) {
