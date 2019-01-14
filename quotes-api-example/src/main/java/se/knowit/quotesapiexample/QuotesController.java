@@ -33,7 +33,7 @@ public class QuotesController {
     @PostMapping("/quotes")
     @ResponseStatus(HttpStatus.CREATED)
     public Quote postQuote(@RequestBody Quote quote) {
-        if (quote.getAuthor() == null || quote.getQuote() == null) {
+        if (quote.postInvalid()) {
             throw new PostQuoteException();
         }
         return quotesRepo.save(quote);

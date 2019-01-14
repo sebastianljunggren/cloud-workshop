@@ -44,6 +44,10 @@ public class Quote {
         return author;
     }
 
+    public Boolean postInvalid() {
+        return this.quote == null || this.author == null || "".equals(this.quote) || "".equals(this.author);
+    }
+
     @Override
     public String toString() {
         return "Quote{" +
