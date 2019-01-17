@@ -22,15 +22,13 @@ export default ({ page, onQuoteClicked }) => {
 
 const QuotesContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
   grid-auto-rows: 10em;
   align-content: center;
   grid-gap: 1em;
   padding: 0 2vw;
   width: 96vw;
   grid-auto-flow: dense;
-  justify-content: center;
-  align-content: center;
 `;
 
 const BasicCard = styled.div`
@@ -59,7 +57,6 @@ const WideCard = styled(BasicCard)`
 `;
 
 const Quote = styled.span`
-  max-width: 40em;
   display: block;
   word-wrap: break-word;
   flex: 3;
