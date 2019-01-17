@@ -1,0 +1,29 @@
+version: "3.2"
+
+services:
+  web:
+    build: ./quotes-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://api:8080
+    networks:
+      - quotesnet
+    depends_on:
+      - api
+    volumes:
+      - ./quotes-frontend:/usr/app
+
+  api:
+    build: ./quotes-api-example
+    ports:
+      - "8080:8080"
+    networks:
+      - quotesnet
+
+networks:
+  quotesnet:
+    driver: bridge
+
+volumes:
+  quotes-frontend:

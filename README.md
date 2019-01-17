@@ -2,6 +2,12 @@
 
 A workshop for creating, deploying and evaluating a simple API to the cloud.
 
+## Local development
+
+```
+docker-compose -f docker-compose-dev.yaml run
+```
+
 ## API specification
 
 The API consists of one resource for creating, updating and listing quoutes. The API is RESTful and JSON-based.
