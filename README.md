@@ -5,7 +5,7 @@ A workshop for creating, deploying and evaluating a simple API to the cloud.
 ## Local development
 
 ```
-docker-compose -f docker-compose-dev.yaml run
+docker-compose -f docker-compose-dev.yaml up
 ```
 
 ## API specification
