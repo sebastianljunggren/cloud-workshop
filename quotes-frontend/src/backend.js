@@ -1,6 +1,11 @@
+const API_URL = process.env.REACT_APP_API_URL || "";
+
 const safeFetch = async (url, obj) => {
+  const fullUrl = `${API_URL}${url}`;
+  console.log("full url", fullUrl);
+
   try {
-    let resp = await fetch(url, {
+    let resp = await fetch(fullUrl, {
       ...obj
     });
 
