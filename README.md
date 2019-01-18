@@ -8,6 +8,16 @@ A workshop for creating, deploying and evaluating a simple API to the cloud.
 docker-compose -f docker-compose-dev.yaml up
 ```
 
+## Production
+
+### Frontend
+
+In quotes-frontend/Dockerfile replace API_URL:8080 with your backend url and port.
+
+```
+ENV REACT_APP_API_URL="http://API_URL:8080"
+```
+
 ## API specification
 
 The API consists of one resource for creating, updating and listing quoutes. The API is RESTful and JSON-based.
