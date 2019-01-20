@@ -28,3 +28,8 @@ dependencies {
 	implementation 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+bootJar {
+	launchScript()
+	archiveName='quotes-api-example.jar'
+}
