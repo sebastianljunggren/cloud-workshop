@@ -11,7 +11,9 @@ RUN yarn add global react-scripts
 
 COPY . .
 
-ENV REACT_APP_API_URL="http://API_URL:8080"
+# The protocol, hostname and port of the API
+ARG API_URL=http://localhost:8080
+ENV REACT_APP_API_URL=$API_URL
 RUN yarn build
 
 FROM nginx:1.15.8-alpine
