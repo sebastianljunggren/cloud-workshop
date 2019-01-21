@@ -13,6 +13,8 @@ services:
       - quotesnet
     depends_on:
       - api
+    volumes:
+      - ./quotes-frontend:/usr/app
 
   api:
     build: ./quotes-api-example
@@ -24,3 +26,6 @@ services:
 networks:
   quotesnet:
     driver: bridge
+
+volumes:
+  quotes-frontend:
