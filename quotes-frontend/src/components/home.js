@@ -5,11 +5,14 @@ import Paginator from "./Paginator";
 import Page from "./quotesController";
 import { Button, UnstyledLink as Link } from "./common";
 
+import UploadModal from "./uploadModal";
+
 export default props => {
   let pageParam = parseInt(qs.parse(props.location.search).page);
 
   const [activePage, setActivePage] = useState(pageParam || 0);
   const [totalNumberOfPages, setTotalNumberOfPages] = useState(0);
+  const [uploadVisible, setUploadVisible] = useState(false);
 
   useEffect(
     () => {
@@ -25,6 +28,17 @@ export default props => {
         <Link to="/quotes/new">
           <Button name="plus-square" size="2x" />
         </Link>
+        <Button
+          name="upload"
+          size="2x"
+          onClick={() => setUploadVisible(true)}
+        />
+        <UploadModal
+          visible={uploadVisible}
+          hideModalAction={() => {
+            setUploadVisible(false);
+          }}
+        />
       </Header>
       <Page
         activePage={activePage}
