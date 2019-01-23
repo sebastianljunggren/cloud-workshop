@@ -4,7 +4,7 @@ import FileDrop from "react-file-drop";
 import history from "../history";
 
 import { ErrorBar } from "./common";
-import { post } from "../backend";
+import { post, get } from "../backend";
 
 export default ({ visible, hideModalAction }) => {
   const fr = new FileReader();
@@ -13,22 +13,21 @@ export default ({ visible, hideModalAction }) => {
   const [error, setError] = useState(null);
 
   const doUpload = () => {
-    console.log(`Uploading ${selectedFile}`);
-    console.log(selectedFile);
-    fr.onloadend = event => {
-      console.log(event);
+    fr.onloadend = async event => {
       const content = fr.result;
       try {
         let quotes = JSON.parse(content);
-        console.log(quotes);
 
-        quotes.forEach(quote => {
-          post("/api/quotes", quote);
+        quotes.forEach(async quote => {
+          await post("/api/quotes", quote);
         });
 
-        history.push("/");
+        let resp = await get("/api/quotes?page=0");
+        let jsonResp = await resp.json();
         setSelectedFile(null);
         hideModalAction();
+        history.push(`/?page=${jsonResp.totalPages - 1}`);
+        window.location.reload();
       } catch (error) {
         console.log(error);
         setError(error.message);
