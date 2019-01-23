@@ -1,3 +1,4 @@
+.DS_Store
 .gradle
 /quotes-api-example/build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -24,3 +25,5 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+
