@@ -6,7 +6,7 @@ services:
       context: ./quotes-frontend
       dockerfile: Dockerfile-dev
     ports:
-      - "3000:3000"
+      - 3000:3000
     networks:
       - quotesnet
     depends_on:
@@ -17,7 +17,7 @@ services:
   api:
     build: ./quotes-api-example
     ports:
-      - "8080:8080"
+      - 8080:8080
     networks:
       - quotesnet
 
