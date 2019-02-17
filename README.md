@@ -126,6 +126,8 @@ It is possible to use the frontend to test other implementations of the API:
 docker run -it -p 3000:80 -e API_URL=http://myapi.org:8080 cloud-workshop_frontend 
 ```
 
+When developing a new frontend, you may use the upload feature in the frontend to get some data into your API.
+Two files with data, `example-quotes-3.json` and `example-quotes-100.json` are provided in this repository.
 
 ## Local development
 
