@@ -1,14 +1,10 @@
 version: "3.2"
 
 services:
-  web:
-    build:
-      context: ./quotes-frontend
-      dockerfile: Dockerfile
+  frontend:
+    build: ./quotes-frontend
     ports:
       - 3000:80
-    networks:
-      - quotesnet
     depends_on:
       - api
     environment:
@@ -18,9 +14,3 @@ services:
     build: ./quotes-api-example
     ports:
       - 8080:8080
-    networks:
-      - quotesnet
-
-networks:
-  quotesnet:
-    driver: bridge

@@ -2,22 +2,6 @@
 
 A workshop for creating, deploying and evaluating a simple API to the cloud.
 
-## Local development
-
-```
-docker-compose -f docker-compose-dev.yaml up
-```
-
-## Production
-
-### Frontend
-
-In quotes-frontend/Dockerfile replace API_URL:8080 with your backend url and port.
-
-```
-ENV REACT_APP_API_URL="http://API_URL:8080"
-```
-
 ## API specification
 
 The API consists of one resource for creating, updating and listing quoutes. The API is RESTful and JSON-based.
@@ -112,4 +96,47 @@ Updates a quote.
   "quote": "This is a quote."
   "author" "The Author"
 }
+```
+
+# Running the example API and frontend
+
+To run the example API start a terminal and navigate to this project.
+Then run:
+
+```bash
+docker-compose up
+```
+
+This will start the api at http://localhost:8080 and the frontend at http://localhost:3000.
+If you make changes to the project you may need to rebuild the project
+
+```bash
+# Build the images
+docker-compose build
+
+# Or force a rebuild when starting them
+docker compose up --build
+```
+
+before starting it again.
+
+It is possible to use the frontend to test other implementations of the API:
+
+```bash
+docker run -it -p 3000:80 -e API_URL=http://myapi.org:8080 cloud-workshop_frontend 
+```
+
+
+## Local development
+
+```bash
+docker-compose -f docker-compose-dev.yaml up
+```
+
+### Frontend
+
+In quotes-frontend/Dockerfile replace API_URL:8080 with your backend url and port.
+
+```
+ENV REACT_APP_API_URL="http://API_URL:8080"
 ```
