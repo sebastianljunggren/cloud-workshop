@@ -15,7 +15,7 @@ export default ({ page, onQuoteClicked }) => {
 
   return (
     <QuotesContainer>
-      {page.content && page.content.map(quoteObj => createCard(quoteObj))}
+      {page.quotes && page.quotes.map(quoteObj => createCard(quoteObj))}
     </QuotesContainer>
   );
 };

@@ -17,12 +17,12 @@ public class Quote {
     @Column(name="Author")
     private String author;
 
+    public Quote() {}
+
     public Quote(String quote, String author) {
         this.quote = quote;
         this.author = author;
     }
-
-    public Quote() {}
 
     public void setQuote(String quote) {
         this.quote = quote;
@@ -42,10 +42,6 @@ public class Quote {
 
     public String getAuthor() {
         return author;
-    }
-
-    public Boolean postInvalid() {
-        return this.quote == null || this.author == null || "".equals(this.quote) || "".equals(this.author);
     }
 
     @Override

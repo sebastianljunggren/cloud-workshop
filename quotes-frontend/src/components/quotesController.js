@@ -13,7 +13,7 @@ export default props => {
         .then(resp => resp.json())
         .then(data => {
           setPageData(data);
-          props.onNewNumberOfPages(data.totalPages);
+          props.onNewNumberOfPages(Math.ceil(data.count / 20));
           setError(null);
         })
         .catch(err => {
