@@ -2,6 +2,16 @@
 
 A workshop for creating, deploying and evaluating a simple API to the cloud.
 
+## The challenge
+
+The goal of the hackathon is to implement the API specification below the cloud.
+Any AWS services available can be used in one region on an account with the default account limits.
+
+The implementations will be evaluated based on their
+
+* Performance (by running load tests)
+* Cost effectiveness (by checking cost of all services in the region)
+
 ## API specification
 
 The API consists of one resource for creating, updating and listing quoutes. The API is RESTful and JSON-based.
